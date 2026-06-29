@@ -1,2 +1,2 @@
-FROM almalinux:9
-RUN dnf install nginx -y
+FROM nginx:latest
+CMD [ "nginx", "-g", "daemon off;" ]
