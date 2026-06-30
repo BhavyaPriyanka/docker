@@ -1,5 +1,5 @@
-FROM nginx:latest
-CMD [ "nginx", "-g", "daemon off;" ]
-LABEL author="bunny" \
-      description="docker learning"
-EXPOSE 80/tcp
+FROM almalinux:9
+RUN dnf install nginx -y
+RUN rm -rf /usr/share/nginx/html/index.html
+ONBUILD COPY index.html /usr/share/nginx/html/index.html
+CMD [ "nginx" ,"-g", "daemon off;"]
